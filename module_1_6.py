@@ -9,7 +9,6 @@ print ('Обновленный словарь:', (my_dict))
 #
 my_set = {'Петя', 1, 2, 3, 'Вася', 1, 2, 3}
 print ('Множество', (my_set))
-my_set.add ((4, 5))
-my_set.update ((4, 5, 6))
+my_set.update ((4, 5), (4, 5, 6))
 my_set.remove (5)
 print ('Обновленное множество', my_set)
