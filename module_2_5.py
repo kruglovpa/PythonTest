@@ -7,7 +7,6 @@ def get_matrix(n, m, value):
             stroki.append(value)
         matrix.append(stroki)
         stroki = []
-        #    matrix = [matrix]
     return matrix
 
 
