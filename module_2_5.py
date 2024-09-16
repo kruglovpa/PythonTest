@@ -1,12 +1,11 @@
 # Функция с параметром
 def get_matrix(n, m, value):
     matrix = []
-    stroki = []
     for i in range(n):
+        stroki = [] 
         for j in range(m):
             stroki.append(value)
         matrix.append(stroki)
-        stroki = []
     return matrix
 
 
