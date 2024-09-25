@@ -1,6 +1,6 @@
 # Рекурсия
 def get_multiplied_digits(number):
-    str_number = str(number)
+    str_number = str(number).strip('0')
     first = int(str_number[0])
 
     if len(str_number) > 1:
@@ -9,5 +9,5 @@ def get_multiplied_digits(number):
         return first
 
 
-primer = get_multiplied_digits(40203)
+primer = get_multiplied_digits(402030)
 print(primer)
