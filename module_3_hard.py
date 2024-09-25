@@ -4,22 +4,21 @@ calc_all = 0
 
 def calc_string(i):
     global calc_all
-    for j in i:
-        if type(j) == int:
-            calc_all += j
-        elif type(j) == str:
-            calc_all += len(j)
+    if type(i) == int:
+        calc_all += i
+    elif type(i) == str:
+        calc_all += len(i)
 
 
 def calculate_structure_sum(data_structure):
     for i in data_structure:
-        if isinstance(i, list) or isinstance(i, tuple) or isinstance(i, str):
-             calc_string(i)
+        if not isinstance(i, str) and not isinstance(i, int) and not isinstance(i, dict):
+             calculate_structure_sum(i)
         elif isinstance(i, dict):
-             calc_string(i.keys())
-             calc_string(i.values())
+             calculate_structure_sum(i.keys())
+             calculate_structure_sum(i.values())
         else:
-            calculate_structure_sum(i)
+            calc_string(i)
     return calc_all
 
 

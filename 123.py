@@ -1,11 +1,14 @@
 new_structure = []
-def structure (data_structure):
-    for i in data_structure:
-        if isinstance(i, str) or isinstance(i, int):
-            new_structure.append(i)
-        else:
-            return structure (i)
 
+def structure(data_structure):
+    for i in data_structure:
+        if not isinstance(i, str) and not isinstance(i, int) and not isinstance(i, dict):
+            structure(i)
+        elif isinstance(i, dict):
+            structure(i.keys())
+            structure(i.values())
+        else:
+            new_structure.append(i)
     return new_structure
 
 
@@ -17,6 +20,5 @@ data_structure = [
     ((), [{(2, 'Urban', ('Urban2', 35))}])
 ]
 
-primer = structure (data_structure)
-print(f'Old: {data_structure}')
-print(f'New: {primer}')
+primer = structure(data_structure)
+print(primer)
