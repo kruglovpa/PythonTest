@@ -61,12 +61,10 @@ class House:
             self.number_of_floors += other
         return self
 
-    # def __iadd__(self, other):
-    #     if isinstance(other, House):
-    #         self.number_of_floors += other.number_of_floors
-    #     elif isinstance(other, int):
-    #         self.number_of_floors += other
-    #     return self
+    def __iadd__(self, other):
+        if isinstance(other, int):
+            self.number_of_floors += other
+        return self
 
 
 h1 = House('ЖК Эльбрус', 10)
