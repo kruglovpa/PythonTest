@@ -3,14 +3,12 @@ class House:
     houses_history = []
 
     def __new__(cls, *args):
-        if cls.houses_history is None:
-            cls.houses_history = super().__new__(cls)
-        return super().__new__(cls)
+        cls.houses_history.append(args[0])
+        return object.__new__(cls)
 
     def __init__(self, name, number_of_floors):
         self.name = name
         self.number_of_floors = number_of_floors
-        House.houses_history.append(self.name)
 
     def __del__(self):
         print(f'{self.name} снесён, но он останется в истории')
