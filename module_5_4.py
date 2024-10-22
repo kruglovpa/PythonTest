@@ -10,14 +10,12 @@ class House:
         self.name = name
         self.number_of_floors = number_of_floors
 
-    def __del__(self):
-        print(f'{self.name} снесён, но он останется в истории')
-
     def go_to(self, new_floor):
         if 1 <= new_floor <= self.number_of_floors:
-            print(new_floor)
+            for i in range(1, new_floor + 1):
+                print(i)
         else:
-            print('Такого этажа не существует"')
+            print('Такого этажа не существует')
 
     def __len__(self):
         return self.number_of_floors
@@ -28,26 +26,38 @@ class House:
     def __eq__(self, other):
         if isinstance(other, House):
             return self.number_of_floors == other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors == other
 
     def __lt__(self, other):
         if isinstance(other, House):
             return self.number_of_floors < other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors < other
 
     def __le__(self, other):
         if isinstance(other, House):
             return self.number_of_floors <= other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors <= other
 
     def __gt__(self, other):
         if isinstance(other, House):
             return self.number_of_floors > other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors > other
 
     def __ge__(self, other):
         if isinstance(other, House):
             return self.number_of_floors >= other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors >= other
 
     def __ne__(self, other):
         if isinstance(other, House):
             return self.number_of_floors != other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors != other
 
     def __add__(self, other):
         if isinstance(other, House):
@@ -65,6 +75,9 @@ class House:
         if isinstance(other, int):
             self.number_of_floors += other
         return self
+
+    def __del__(self):
+        print(f'{self.name} снесён, но он останется в истории')
 
 
 h1 = House('ЖК Эльбрус', 10)
