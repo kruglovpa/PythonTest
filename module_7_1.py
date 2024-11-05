@@ -1,3 +1,4 @@
+# Режимы открытия файлов
 class Product:
 
     def __init__(self, name, weight, category):
