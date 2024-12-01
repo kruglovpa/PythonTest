@@ -10,7 +10,7 @@ class Bank:
         self.lock = Lock()
 
     def deposit(self):
-        for i in range(10):
+        for i in range(100):
             transh = randint(50, 500)
             if self.balance >= 500 and self.lock.locked():
                 self.lock.release()
@@ -19,7 +19,7 @@ class Bank:
             sleep(0.001)
 
     def take(self):
-        for i in range(10):
+        for i in range(100):
             transh = randint(50, 500)
             print(f'Запрос на {transh}')
             if self.balance >= transh:
