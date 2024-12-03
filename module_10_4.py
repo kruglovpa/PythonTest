@@ -36,19 +36,19 @@ class Cafe:
                     free = False
                     break
             if free:
-                Queue().put(guest.name)
+                self.queue.put(guest.name)
                 print(f'{guest.name} в очереди')
 
 
     def discuss_guests(self):
-        while not Queue().empty() or (table.guest for table in tables):
+        while not self.queue.empty() or (table.guest for table in tables):
             print(guests)
             for table in tables:
                 if table.guest and not table.guest.is_alive():
                     print(f'{table.guest.name} покушал и ушел. Стол номер {table.number} свободен.')
                     table.guest = None
-                    if not Queue().empty():
-                        table.guest = Queue.get()
+                    if not self.queue.empty():
+                        table.guest = self.queue.get()
                         print(f'{table.guest.name} вышел из очереди и сел за стол {table.number}')
                         table.guest.start()
 
