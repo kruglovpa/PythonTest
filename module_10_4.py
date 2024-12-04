@@ -39,11 +39,11 @@ class Cafe:
                 self.queue.put(guest.name)
                 print(f'{guest.name} в очереди')
 
-
     def discuss_guests(self):
         while not self.queue.empty() or (table.guest for table in tables):
             print(guests)
             for table in tables:
+                sleep(1)
                 if table.guest and not table.guest.is_alive():
                     print(f'{table.guest.name} покушал и ушел. Стол номер {table.number} свободен.')
                     table.guest = None
