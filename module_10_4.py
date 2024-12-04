@@ -30,7 +30,7 @@ class Cafe:
             for table in tables:
                 free = True
                 if not table.guest:
-                    table.guest = guest.name
+                    table.guest = guest
                     guest.start()
                     print(f'{guest.name} сел за стол {table.number}')
                     free = False
