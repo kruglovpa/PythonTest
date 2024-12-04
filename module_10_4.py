@@ -36,7 +36,7 @@ class Cafe:
                     free = False
                     break
             if free:
-                self.queue.put(guest.name)
+                self.queue.put(guest)
                 print(f'{guest.name} в очереди')
 
     def discuss_guests(self):
